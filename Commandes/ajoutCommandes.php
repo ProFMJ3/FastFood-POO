@@ -224,7 +224,7 @@
                 $val = $sq->fetchColumn();
             }
                 ?>
-                <label for="prixUnitaire" > Total </label >
+                <label for="prixUnitaire" > <?php echo $val['prixUnitaire'];?> </label >
             }
             ?>
             <input type="number" name="prixUnitaire" id="prixUnitaire" required>
