@@ -85,8 +85,8 @@
             <th scope="col">ID</th>
             <th scope="col">NOM</th>
             <th scope="col">PRENOMS</th>
-            <th scope="col">TELEPHONE</th>
             <th scope="col">ADRESSE</th>
+            <th scope="col">TELEPHONE</th>
             <th scope="col">ACTION</th>
         </tr>
         </thead>
