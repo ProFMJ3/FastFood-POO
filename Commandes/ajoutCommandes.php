@@ -224,10 +224,10 @@
                 $val = $sq->fetchColumn();
             }
                 ?>
-                <label for="prixUnitaire" > <?php echo $val['prixUnitaire'];?> </label >
+                <label for="prixUnitaire" > Total</label >
             }
             ?>
-            <input type="number" name="prixUnitaire" id="prixUnitaire" required>
+            <input type="number" name="prixUnitaire" value="<?php echo $val['prixUnitaire'];?> " id="prixUnitaire" required>
 
         </div>
 
