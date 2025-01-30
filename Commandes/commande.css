@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+.container{
+    background-color: grey;
+    margin: 0;
+    height: 60vh;
+    width: 400px;
+    border-radius: 10px;
+    position: absolute;
+    right: 29%;
+    bottom: 30%;
+    left: 35%;
+    top: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.titre{
+
+    font-size: 30px;
+    position: absolute;
+    left: 36%;
+    right: 36%;
+
+
+
+}
