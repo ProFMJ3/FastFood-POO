@@ -1,6 +1,9 @@
 <?php
+ include_once('Commandes.php');
+ include_once('../GestionConnexion/Connexion.php');
+ $connexion = Connexion::connexion_db();
 //try{
-    $connexion = new PDO('mysql:host=localhost;dbname=fastfood;charset =utf8','root','Jules1012#');
+   
 
     //echo("Connexion réussie")
         
@@ -11,8 +14,8 @@
         $qte = htmlspecialchars($_POST['quantite']);
         $prix = htmlspecialchars($_POST['prixTotal']);
 
-        //Date et heur actuelle
-        $dateCommande = date('Y-m-d') . ' ' . date('H:i:s');
+//        //Date et heure actuelle
+//        $dateCommande = date('Y-m-d') . ' ' . date('H:i:s');
         
 
 //        $cl = $connexion->prepare("SELECT clientId FROM clients WHERE nomClient=?");
@@ -23,18 +26,11 @@
 //        $mn->execute(array($client));
 //        $mnId = $cl->fetchColumn();
 
+            $commande = new Commandes($qte, $prix, $menu, $client);
+            $commande->ajouterCommande();
 
-        $sql = $connexion->prepare("INSERT INTO commandes(quantite, prixTotal,dateCommande, menuId, clientId ) VALUES(:qte, :pt,:dt,:mnId,:clId)");
-        $sql->execute(array(
-            'qte'=>$qte,
-            'pt'=>$prix,
-            'dt'=>$dateCommande,
-            'mnId'=>$menu,
-            'clId'=>$client,
-
-        ));
-        if($sql) {
-            echo("Commande " . $menu . " de " . $client . " a été ajouté avec succès");
+        if($commande) {
+            //echo("Commande " . $menu . " de " . $client . " a été ajouté avec succès");
             header("Location: listeCommandes.php");
             exit();
         }
@@ -216,20 +212,20 @@
 <!--            <input type="text" name="nom" id="nom" placeholder="Entrer le nom du menu" required>-->
         </div>
 
-        <div>
+        <!-- <div>
             <?php
-            $sq = $connexion->prepare("SELECT prixUnitaire FROM menus WHERE menuId = ? ");
+            // $sq = $connexion->prepare("SELECT prixUnitaire FROM menus WHERE menuId = ? ");
 
-            if($sq->execute($menu['menuId'])) {
-                $val = $sq->fetchColumn();
-            }
+            // if($sq->execute($menu['menuId'])) {
+            //     $val = $sq->fetchColumn();
+            // }
                 ?>
                 <label for="prixUnitaire" > Total</label >
             }
             ?>
             <input type="number" name="prixUnitaire" value="<?php echo $val['prixUnitaire'];?> " id="prixUnitaire" required>
 
-        </div>
+        </div> -->
 
 
         <div>

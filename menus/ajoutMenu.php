@@ -16,7 +16,7 @@ include_once('Menus.php');
 
             // Appeler la méthode pour ajouter le menu
             $menu->ajouterMenu();
-            if ($menu){
+            if ($ menu){
                 echo ($nom ." a été ajouté avec succès");
                 header("Location: listeMenu.php");
                 exit();
